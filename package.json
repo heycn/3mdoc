@@ -11,7 +11,7 @@
     "3mdoc": "bin/3mdoc.js"
   },
   "keywords": [],
-  "author": "heycn",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
