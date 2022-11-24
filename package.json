@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc -w"
+    "start": "tsc -w",
+    "preview": "cd build && serve ."
   },
   "bin": {
     "3mdoc": "bin/3mdoc.js"
@@ -14,11 +15,12 @@
   "license": "ISC",
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
-    "@types/node": "^18.11.9",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.9",
-    "rollup": "^3.4.0",
-    "typescript": "^4.9.3"
+    "@types/node": "^18.11.7",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "rollup": "^3.2.3",
+    "serve": "^14.0.1",
+    "typescript": "^4.8.4"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^2.2.0",
@@ -26,6 +28,6 @@
     "fs-extra": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "vite": "^3.2.4"
+    "vite": "^3.2.1"
   }
 }

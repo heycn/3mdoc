@@ -56,8 +56,7 @@ export async function renderPage(
         <div id="root">${appHtml}</div>
         <script type="module" src="/${clientChunk?.fileName}"></script>
       </body>
-    </html>
-  `.trim()
+    </html>`.trim()
   await fs.ensureDir(join(root, 'build'))
   await fs.writeFile(join(root, 'build/index.html'), html)
   await fs.remove(join(root, '.temp'))
