@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc -w",
-    "preview": "cd build && serve ."
+    "preview": "cd docs/build && serve ."
   },
   "bin": {
     "3mdoc": "bin/3mdoc.js"
