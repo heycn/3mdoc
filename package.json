@@ -7,6 +7,7 @@
     "start": "tsup --watch",
     "build": "tsup",
     "preview": "cd build && serve .",
+    "test:init": "vitest --ui",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ./"
   },
   "bin": {
@@ -22,13 +23,15 @@
     "@types/react-dom": "18.2.4",
     "@typescript-eslint/eslint-plugin": "5.59.8",
     "@typescript-eslint/parser": "5.59.8",
+    "@vitest/ui": "0.31.2",
     "eslint": "8.41.0",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "rollup": "3.23.0",
     "serve": "14.2.0",
     "tsup": "6.7.0",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "vitest": "0.31.2"
   },
   "dependencies": {
     "@vitejs/plugin-react": "4.0.0",
