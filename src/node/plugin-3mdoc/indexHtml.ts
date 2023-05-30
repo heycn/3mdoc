@@ -1,6 +1,6 @@
 import { Plugin } from "vite";
 import { readFile } from "fs/promises"
-import { CLIENT_ENTRY_PATH, DEFAULT_TEMPLATE_PATH } from "../constants";
+import { CLIENT_ENTRY_PATH, DEFAULT_HTML_PATH } from "../constants";
 
 export const pluginIndexHtml = (): Plugin => ({
   name: "3mdoc:index-html",
@@ -23,7 +23,7 @@ export const pluginIndexHtml = (): Plugin => ({
     return () => {
       server.middlewares.use(async (req, res, next) => {
         // 1. 读取 template.html 内容
-        let content = await readFile(DEFAULT_TEMPLATE_PATH, "utf-8")
+        let content = await readFile(DEFAULT_HTML_PATH, "utf-8")
         content = await server.transformIndexHtml(
           req.url,
           content,

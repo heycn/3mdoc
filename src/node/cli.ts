@@ -1,6 +1,7 @@
 import cac from "cac"
 import { createDevServer } from "./dev"
 import { build } from "./build"
+import { resolve } from "path"
 
 const cli = cac("3mdoc").version("0.0.1").help()
 
@@ -15,7 +16,12 @@ cli
 cli
   .command("build [root]", "build in production")
   .action(async (root: string) => {
-    await build(root)
+    try {
+      root = resolve(root)
+      await build(root)
+    } catch (e) {
+      console.log(`[3mdoc] ${e}`)
+    }
   })
 
 cli.parse()
