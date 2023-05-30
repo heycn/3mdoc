@@ -1,3 +1,3 @@
-import { Layout } from "../theme-default"
+import { Layout } from '../theme-default'
 
 export const App = () => <Layout />

@@ -1,12 +1,12 @@
-import cac from "cac"
-import { createDevServer } from "./dev"
-import { build } from "./build"
-import { resolve } from "path"
+import cac from 'cac'
+import { createDevServer } from './dev'
+import { build } from './build'
+import { resolve } from 'path'
 
-const cli = cac("3mdoc").version("0.0.1").help()
+const cli = cac('3mdoc').version('0.0.1').help()
 
 cli
-  .command("dev [root]", "start dev server")
+  .command('dev [root]', 'start dev server')
   .action(async (root: string) => {
     const server = await createDevServer(root)
     await server.listen()
@@ -14,7 +14,7 @@ cli
   })
 
 cli
-  .command("build [root]", "build in production")
+  .command('build [root]', 'build in production')
   .action(async (root: string) => {
     try {
       root = resolve(root)
