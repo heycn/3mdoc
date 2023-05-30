@@ -21,10 +21,9 @@ export async function bundle(root: string) {
     })
     const clientBuild = async () => viteBuild(resolveViteConfig(false))
     const serverBuild = async () => viteBuild(resolveViteConfig(true))
-
     console.log("[3mdoc] Building client + server bun bundles...")
-    await clientBuild()
-    await serverBuild()
+    const [clientBundle, serverBundle] = await Promise.all([clientBuild(), serverBuild()])
+    return [clientBundle, serverBundle]
   } catch (e) {
     console.log(`[3mdoc] ${e}`)
   }
@@ -32,7 +31,7 @@ export async function bundle(root: string) {
 
 export async function build(root: string) {
   // 1. 把 client 端 和 server 端 进行打包，分别运行在客户端和服务端
-  await bundle(root)
+  const [clientBundle, serverBundle] = await bundle(root)
   // 2. 引入 server-entry 入口模块
   // 3. 服务端渲染，输出 HTML
 }
