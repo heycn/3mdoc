@@ -6,6 +6,9 @@
   "scripts": {
     "start": "tsc -w"
   },
+  "bin": {
+    "3mdoc": "bin/3mdoc.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
