@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsup --watch",
+    "dev": "tsup --watch",
     "build": "tsup",
     "preview": "cd build && serve .",
     "test:init": "vitest --ui",
-    "lint": "eslint --ext .ts,.tsx,.js,.jsx ./"
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx ./",
+    "test:e2e": "playwright test",
+    "prepare:e2e": "tsx scripts/prepare-e2e.ts"
   },
   "bin": {
     "3mdoc": "bin/3mdoc.js"
@@ -17,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@playwright/test": "1.26.1",
     "@types/fs-extra": "11.0.1",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
@@ -27,9 +30,11 @@
     "eslint": "8.41.0",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
+    "execa": "5.1.1",
     "rollup": "3.23.0",
     "serve": "14.2.0",
     "tsup": "6.7.0",
+    "tsx": "3.12.7",
     "typescript": "5.0.4",
     "vitest": "0.31.2"
   },

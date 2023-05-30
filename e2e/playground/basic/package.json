@@ -1,0 +1,20 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "3mdoc dev docs",
+    "build": "3mdoc build docs",
+    "preview": "3mdoc start docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "3mdocjs": "../../.."
+  }
+}
