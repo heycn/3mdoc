@@ -1,9 +1,24 @@
 import { Plugin } from "vite";
 import { readFile } from "fs/promises"
-import { DEFAULT_TEMPLATE_PATH } from "../constants";
+import { CLIENT_ENTRY_PATH, DEFAULT_TEMPLATE_PATH } from "../constants";
 
 export const pluginIndexHtml = (): Plugin => ({
   name: "3mdoc:index-html",
+  transformIndexHtml(html) {
+    return {
+      html,
+      tags: [
+        {
+          tag: "script",
+          attrs: {
+            type: "module",
+            src: `/@fs/${CLIENT_ENTRY_PATH}`
+          },
+          injectTo: "body"
+        }
+      ]
+    }
+  },
   configureServer(server) {
     return () => {
       server.middlewares.use(async (req, res, next) => {
