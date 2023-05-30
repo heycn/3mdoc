@@ -8,7 +8,12 @@ export const pluginIndexHtml = (): Plugin => ({
     return () => {
       server.middlewares.use(async (req, res, next) => {
         // 1. 读取 template.html 内容
-        const content = await readFile(DEFAULT_TEMPLATE_PATH, "utf-8")
+        let content = await readFile(DEFAULT_TEMPLATE_PATH, "utf-8")
+        content = await server.transformIndexHtml(
+          req.url,
+          content,
+          req.originalUrl
+        )
         // 2. 响应 HTML 给浏览器
         res.setHeader("Content-Type", "text/html")
         res.end(content)
