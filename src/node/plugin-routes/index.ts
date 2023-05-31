@@ -10,6 +10,7 @@ export interface Route {
 
 interface PluginOptions {
   root: string;
+  isSSR: boolean;
 }
 
 export const CONVENTIONAL_ROUTE_ID = '3mdoc:routes'
@@ -20,7 +21,6 @@ export function pluginRoutes(options: PluginOptions): Plugin {
   return {
     name: '3mdoc:routes',
     async configResolved() {
-      // Vite 启动时，对 RouteService 进行初始化
       await routeService.init()
     },
     resolveId(id: string) {
@@ -31,7 +31,7 @@ export function pluginRoutes(options: PluginOptions): Plugin {
 
     load(id: string) {
       if (id === '\0' + CONVENTIONAL_ROUTE_ID) {
-        return routeService.generateRoutesCode()
+        return routeService.generateRoutesCode(options.isSSR)
       }
     }
   }

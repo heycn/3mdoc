@@ -36,22 +36,6 @@ export class RouteService {
     })
   }
 
-  generateRoutesCode() {
-    return `
-      import React from 'react';
-      import loadable from '@loadable/component';
-      ${this.#routeData
-        .map((route, index) => `const Route${index} = loadable(() => import('${route.absolutePath}'));`)
-        .join('\n')}
-      export const routes = [
-      ${this.#routeData
-        .map((route, index) => `{ path: '${route.routePath}', element: React.createElement(Route${index}) }`)
-        .join(',\n')}
-      ];
-    `
-  }
-
-  // 获取路由数据，方便测试
   getRouteMeta(): RouteMeta[] {
     return this.#routeData
   }
@@ -59,5 +43,27 @@ export class RouteService {
   normalizeRoutePath(rawPath: string) {
     const routePath = rawPath.replace(/\.(.*)?$/, '').replace(/index$/, '')
     return routePath.startsWith('/') ? routePath : `/${routePath}`
+  }
+
+  generateRoutesCode(ssr = false) {
+    return `
+import React from 'react';
+${ssr ? '' : 'import loadable from "@loadable/component";'}
+
+${this.#routeData
+  .map((route, index) => {
+    return ssr
+      ? `import Route${index} from "${route.absolutePath}";`
+      : `const Route${index} = loadable(() => import('${route.absolutePath}'));`
+  })
+  .join('\n')}
+export const routes = [
+  ${this.#routeData
+    .map((route, index) => {
+      return `{ path: '${route.routePath}', element: React.createElement(Route${index}) }`
+    })
+    .join(',\n')}
+];
+`
   }
 }
