@@ -7,7 +7,7 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "preview": "cd build && serve .",
-    "test:init": "vitest --ui",
+    "test:unit": "vitest run",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ./",
     "test:e2e": "playwright test",
     "prepare:e2e": "tsx scripts/prepare-e2e.ts"
@@ -19,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@loadable/component": "5.15.3",
     "@playwright/test": "1.26.1",
     "@types/fs-extra": "11.0.1",
     "@types/node": "20.2.5",
@@ -41,6 +42,7 @@
   "dependencies": {
     "@vitejs/plugin-react": "4.0.0",
     "cac": "6.7.14",
+    "fast-glob": "3.2.12",
     "fs-extra": "11.1.1",
     "ora": "6.3.1",
     "react": "18.2.0",
