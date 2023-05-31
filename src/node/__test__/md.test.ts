@@ -1,15 +1,20 @@
-import remarkParse from 'remark-parse'
 import { unified } from 'unified'
 import { describe, test, expect } from 'vitest'
+import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import { rehypePluginPreWrapper } from '../plugin-mdx/rehypePlugins/preWrapper'
+import { rehypePluginShiki } from '../../node/plugin-mdx/rehypePlugins/shiki'
+import shiki from 'shiki'
 
-describe('Markdown compile cases', () => {
+describe('Markdown compile cases', async () => {
   const processor = unified()
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypePluginPreWrapper)
+    .use(rehypePluginShiki, {
+      highlighter: await shiki.getHighlighter({ theme: 'monokai' })
+    })
     .use(rehypeStringify)
 
   test('Compile title', async () => {
@@ -21,15 +26,16 @@ describe('Markdown compile cases', () => {
   test('Compile code', async () => {
     const mdContent = 'I am using `3mdoc.js`'
     const result = processor.processSync(mdContent)
-    expect(result.value).toMatchInlineSnapshot('"<p>I am using <code>3mdoc.js</code></p>"')
+    expect(result.value).toMatchInlineSnapshot(
+    '"<p>I am using <code>3mdoc.js</code></p>"')
   })
 
   test('Compile code block', async () => {
     const mdContent = '```js\nconsole.log(123);\n```'
     const result = processor.processSync(mdContent)
     expect(result.value).toMatchInlineSnapshot(`
-      "<div class=\\"language-js\\"><span class=\\"lang\\">js</span><pre><code class=\\"language-js\\">console.log(123);
-      </code></pre></div>"
+      "<div class=\\"language-js\\"><span class=\\"lang\\">js</span><pre class=\\"shiki monokai\\" style=\\"background-color: #272822\\" tabindex=\\"0\\"><code><span class=\\"line\\"><span style=\\"color: #F8F8F2\\">console.</span><span style=\\"color: #A6E22E\\">log</span><span style=\\"color: #F8F8F2\\">(</span><span style=\\"color: #AE81FF\\">123</span><span style=\\"color: #F8F8F2\\">);</span></span>
+      <span class=\\"line\\"></span></code></pre></div>"
     `)
   })
 })

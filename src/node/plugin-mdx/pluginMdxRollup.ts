@@ -1,4 +1,3 @@
-// src/node/plugin-mdx/pluginMdxRollup.ts
 import pluginMdx from '@mdx-js/rollup'
 import type { Plugin } from 'vite'
 import remarkPluginGFM from 'remark-gfm'
@@ -7,13 +6,15 @@ import rehypePluginSlug from 'rehype-slug'
 import remarkPluginMDXFrontMatter from 'remark-mdx-frontmatter'
 import remarkPluginFrontmatter from 'remark-frontmatter'
 import { rehypePluginPreWrapper } from './rehypePlugins/preWrapper'
+import { rehypePluginShiki } from './rehypePlugins/shiki'
+import shiki from 'shiki'
 
-export function pluginMdxRollup(): Plugin {
+export async function pluginMdxRollup(): Promise<Plugin> {
   return pluginMdx({
     remarkPlugins: [
       remarkPluginGFM,
       remarkPluginFrontmatter,
-      remarkPluginMDXFrontMatter
+      [remarkPluginMDXFrontMatter, { name: 'frontmatter' }]
     ],
     rehypePlugins: [
       rehypePluginSlug,
@@ -27,8 +28,12 @@ export function pluginMdxRollup(): Plugin {
             type: 'text',
             value: '#'
           }
-        },
-        rehypePluginPreWrapper
+        }
+      ],
+      rehypePluginPreWrapper,
+      [
+        rehypePluginShiki,
+        { highlighter: await shiki.getHighlighter({ theme: 'monokai' }) }
       ]
     ]
   }) as unknown as Plugin

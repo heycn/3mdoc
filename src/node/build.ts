@@ -3,18 +3,18 @@ import type { RollupOutput } from 'rollup'
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constants'
 import path, { join } from 'path'
 import fs from 'fs-extra'
+// import ora from 'ora';
 import { SiteConfig } from 'shared/types'
 import { createVitePlugins } from './vitePlugins'
 
-// import ora from 'ora';
-
 export async function bundle(root: string, config: SiteConfig) {
-  const resolveViteConfig = (isServer: boolean): InlineConfig => ({
+  const resolveViteConfig = async (
+    isServer: boolean
+  ): Promise<InlineConfig> => ({
     mode: 'production',
     root,
-    plugins: createVitePlugins(config),
+    plugins: await createVitePlugins(config),
     ssr: {
-      // 注意加上这个配置，防止 cjs 产物中 require ESM 的产物，因为 react-router-dom 的产物为 ESM 格式
       noExternal: ['react-router-dom']
     },
     build: {
@@ -29,20 +29,19 @@ export async function bundle(root: string, config: SiteConfig) {
       }
     }
   })
-
   // const spinner = ora();
-  console.log('[3mdoc] Building client + server bundles...')
+  // spinner.start(`Building client + server bundles...`);
 
   try {
     const [clientBundle, serverBundle] = await Promise.all([
       // client build
-      viteBuild(resolveViteConfig(false)),
+      viteBuild(await resolveViteConfig(false)),
       // server build
-      viteBuild(resolveViteConfig(true)),
+      viteBuild(await resolveViteConfig(true))
     ])
     return [clientBundle, serverBundle] as [RollupOutput, RollupOutput]
   } catch (e) {
-    console.log(`[3mdoc] ${e}`)
+    console.log(e)
   }
 }
 
@@ -54,7 +53,7 @@ export async function renderPage(
   const clientChunk = clientBundle.output.find(
     (chunk) => chunk.type === 'chunk' && chunk.isEntry
   )
-  console.log('[3mdoc] Rendering page in server side...')
+  console.log('Rendering page in server side...')
   const appHtml = render()
   const html = `
 <!DOCTYPE html>
@@ -76,13 +75,15 @@ export async function renderPage(
 }
 
 export async function build(root: string = process.cwd(), config: SiteConfig) {
-  // bundle 方法也新增入参
+  // 1. bundle - client 端 + server 端
   const [clientBundle] = await bundle(root, config)
+  // 2. 引入 server-entry 模块
   const serverEntryPath = join(root, '.temp', 'ssr-entry.js')
   const { render } = await import(serverEntryPath)
+  // 3. 服务端渲染，产出 HTML
   try {
     await renderPage(render, root, clientBundle)
   } catch (e) {
-    console.log('[3mdoc] Render page error.\n', e)
+    console.log('Render page error.\n', e)
   }
 }
