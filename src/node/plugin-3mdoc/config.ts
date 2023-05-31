@@ -1,6 +1,7 @@
 import { Plugin } from 'vite'
 import { SiteConfig } from 'shared/types/index'
-import { relative } from 'path'
+import { join, relative } from 'path'
+import { PACKAGE_ROOT } from '../../node/constants'
 
 const SITE_DATA_ID = '3mdoc:site-data'
 
@@ -18,6 +19,16 @@ export function pluginConfig(
     load(id) {
       if (id === '\0' + SITE_DATA_ID) {
         return `export default ${JSON.stringify(config.siteData)}`
+      }
+    },
+    config() {
+      return {
+        root: PACKAGE_ROOT,
+        resolve: {
+          alias: {
+            '@runtime': join(PACKAGE_ROOT, 'src', 'runtime', 'index.ts')
+          }
+        }
       }
     },
     async handleHotUpdate(ctx) {
