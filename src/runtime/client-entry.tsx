@@ -1,5 +1,8 @@
 import { createRoot } from 'react-dom/client'
 import { App } from './App'
+import siteData from '3mdoc:site-data'
+
+console.log('siteData', siteData)
 
 function renderInBrowser() {
   const containerEl = document.getElementById('root')
