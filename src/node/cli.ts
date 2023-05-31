@@ -1,6 +1,7 @@
 import cac from 'cac'
 import { build } from './build'
 import { resolve } from 'path'
+import { resolveConfig } from './config'
 
 const cli = cac('3mdoc').version('0.0.1').help()
 
@@ -24,9 +25,10 @@ cli
   .action(async (root: string) => {
     try {
       root = resolve(root)
-      await build(root)
+      const config = await resolveConfig(root, 'build', 'production')
+      await build(root, config)
     } catch (e) {
-      console.log(`[3mdoc] ${e}`)
+      console.log(e)
     }
   })
 

@@ -7,7 +7,7 @@ const SITE_DATA_ID = '3mdoc:site-data'
 
 export function pluginConfig(
   config: SiteConfig,
-  restartServer: () => Promise<void>
+  restartServer?: () => Promise<void>
 ): Plugin {
   return {
     name: '3mdoc:config',
