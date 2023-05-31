@@ -5,16 +5,19 @@ import { PACKAGE_ROOT } from './constants'
 import { resolveConfig } from './config'
 import { pluginConfig } from './plugin-3mdoc/config'
 
-export async function createDevServer(root: string) {
+export async function createDevServer(
+  root: string,
+  restartServer: () => Promise<void>
+) {
   const config = await resolveConfig(root, 'serve', 'development')
-  console.log(`[3mdoc] ${config}`)
+  console.log(config.siteData)
 
   return createServer({
     root,
     plugins: [
       pluginIndexHtml(),
       pluginReact(),
-      pluginConfig(config)
+      pluginConfig(config, restartServer)
     ],
     server: {
       fs: {
