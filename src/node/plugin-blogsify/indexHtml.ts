@@ -3,7 +3,7 @@ import { readFile } from 'fs/promises'
 import { CLIENT_ENTRY_PATH, DEFAULT_HTML_PATH } from '../constants'
 
 export const pluginIndexHtml = (): Plugin => ({
-  name: '3mdoc:index-html',
+  name: 'blogsify:index-html',
   transformIndexHtml(html) {
     return {
       html,

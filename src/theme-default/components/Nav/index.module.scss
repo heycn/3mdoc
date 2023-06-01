@@ -1,5 +1,5 @@
 .link:hover {
-  color: var(--3mdoc-c-brand);
+  color: var(--blogsify-c-brand);
   transition: color 0.2s;
 }
 
@@ -13,21 +13,21 @@
   display: flex;
   fill: currentColor;
   transition: color 0.2s;
-  color: var(--3mdoc-c-text-2);
+  color: var(--blogsify-c-text-2);
 
   &:hover {
-    color: var(--3mdoc-c-text-1);
+    color: var(--blogsify-c-text-1);
   }
 }
 
 .nav {
   padding-left: max(
     32px,
-    calc(32px + (100vw - var(--3mdoc-layout-max-width)) / 2)
+    calc(32px + (100vw - var(--blogsify-layout-max-width)) / 2)
   );
   padding-right: max(
     32px,
-    calc(32px + (100vw - var(--3mdoc-layout-max-width)) / 2)
+    calc(32px + (100vw - var(--blogsify-layout-max-width)) / 2)
   );
-  background-color: var(--3mdoc-c-bg);
+  background-color: var(--blogsify-c-bg);
 }

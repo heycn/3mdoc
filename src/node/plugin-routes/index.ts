@@ -15,13 +15,13 @@ interface PluginOptions {
   isSSR: boolean;
 }
 
-export const CONVENTIONAL_ROUTE_ID = '3mdoc:routes'
+export const CONVENTIONAL_ROUTE_ID = 'blogsify:routes'
 
 export function pluginRoutes(options: PluginOptions): Plugin {
   const routeService = new RouteService(options.root)
 
   return {
-    name: '3mdoc:routes',
+    name: 'blogsify:routes',
     async configResolved() {
       await routeService.init()
     },

@@ -3,13 +3,13 @@
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: var(--3mdoc-z-index-sidebar);
+  z-index: var(--blogsify-z-index-sidebar);
   padding: 32px 32px 96px;
   width: calc(100vw - 64px);
   max-width: 320px;
-  background-color: var(--3mdoc-c-bg);
+  background-color: var(--blogsify-c-bg);
   opacity: 0;
-  box-shadow: var(--3mdoc-c-shadow-3);
+  box-shadow: var(--blogsify-c-shadow-3);
   overflow-x: hidden;
   overflow-y: auto;
   transform: translateX(-100%);
@@ -17,17 +17,17 @@
 }
 
 :global(.dark) .sidebar {
-  box-shadow: var(--3mdoc-shadow-1);
+  box-shadow: var(--blogsify-shadow-1);
 }
 
 @media (min-width: 960px) {
   .sidebar {
     z-index: 1;
-    padding-top: var(--3mdoc-nav-height);
+    padding-top: var(--blogsify-nav-height);
     padding-bottom: 128px;
-    width: var(--3mdoc-sidebar-width);
+    width: var(--blogsify-sidebar-width);
     max-width: 100%;
-    background-color: var(--3mdoc-c-bg-alt);
+    background-color: var(--blogsify-c-bg-alt);
     opacity: 1;
     visibility: visible;
     box-shadow: none;
@@ -39,11 +39,11 @@
   .sidebar {
     padding-left: max(
       32px,
-      calc(32px + (100% - var(--3mdoc-layout-max-width)) / 2)
+      calc(32px + (100% - var(--blogsify-layout-max-width)) / 2)
     );
     width: calc(
-      var(--3mdoc-sidebar-width) +
-        ((100% - var(--3mdoc-layout-max-width)) / 2)
+      var(--blogsify-sidebar-width) +
+        ((100% - var(--blogsify-layout-max-width)) / 2)
     );
   }
 }

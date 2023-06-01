@@ -3,7 +3,7 @@ import { build } from './build'
 import { resolve } from 'path'
 import { resolveConfig } from './config'
 
-const cli = cac('3mdoc').version('0.0.1').help()
+const cli = cac('blogsify').version('0.0.1').help()
 
 cli
   .command('dev [root]', 'start dev server')

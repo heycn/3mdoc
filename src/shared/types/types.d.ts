@@ -1,10 +1,10 @@
-declare module '3mdoc:site-data' {
+declare module 'blogsify:site-data' {
   import type { UserConfig } from 'shared/types'
   const siteData: UserConfig
   export default siteData
 }
 
-declare module '3mdoc:routes' {
+declare module 'blogsify:routes' {
   import { RouteObject } from 'react-router-dom'
   const routes: RouteObject[]
   export { routes }

@@ -11,4 +11,4 @@ export function render(pagePath: string) {
   )
 }
 
-export { routes } from '3mdoc:routes'
+export { routes } from 'blogsify:routes'

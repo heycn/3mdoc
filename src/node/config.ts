@@ -16,7 +16,7 @@ function getUserConfigPath(root: string) {
       .find(fs.pathExistsSync)
     return configPath
   } catch (e) {
-    console.error(`[3mdoc] Failed to load user config: ${e}`)
+    console.error(`[blogsify] Failed to load user config: ${e}`)
     throw e
   }
 }
@@ -48,7 +48,7 @@ export async function resolveUserConfig(
 
 export function resolveSiteData(userConfig: UserConfig): UserConfig {
   return {
-    title: userConfig.title || '3mdoc',
+    title: userConfig.title || 'blogsify',
     description: userConfig.description || '一个 3 分钟生成文档的 SSG 框架',
     themeConfig: userConfig.themeConfig || {},
     vite: userConfig.vite || {}

@@ -1,6 +1,6 @@
-import { pluginIndexHtml } from './plugin-3mdoc/indexHtml'
+import { pluginIndexHtml } from './plugin-blogsify/indexHtml'
 import pluginReact from '@vitejs/plugin-react'
-import { pluginConfig } from './plugin-3mdoc/config'
+import { pluginConfig } from './plugin-blogsify/config'
 import { pluginRoutes } from './plugin-routes'
 import { SiteConfig } from 'shared/types'
 import { pluginMdx } from './plugin-mdx'

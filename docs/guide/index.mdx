@@ -8,11 +8,11 @@
 
 首先，Fresh 基于 Deno 运行时，由 Deno 原班人马开发，享有 Deno 一系列工具链和生态的优势，比如内置的测试工具、支持 http import 等等。
 
-其次是渲染性能方面，Fresh 整体采用 3mdocs 架构(之前介绍的 Astro 也是类似)，实现了客户端按需 Hydration，有一定的渲染性能优势。
+其次是渲染性能方面，Fresh 整体采用 blogsifys 架构(之前介绍的 Astro 也是类似)，实现了客户端按需 Hydration，有一定的渲染性能优势。
 
 当然，还有一个比较出色的点是构建层做到了 Bundle-less，即应用代码不需要打包即可直接部署上线，后文会介绍这部分的具体实现。
 
-最后，不同于 Next.js 和 Remix，Fresh 的前端渲染层由 Preact 完成，包括 3mdocs 架构的实现也是基于 Preact，且不支持其它前端框架。
+最后，不同于 Next.js 和 Remix，Fresh 的前端渲染层由 Preact 完成，包括 blogsifys 架构的实现也是基于 Preact，且不支持其它前端框架。
 
 ## 上手体验
 
@@ -46,7 +46,7 @@ deno run -A -r https://fresh.deno.dev my-project
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0162891907e2416e900c12d3309dfca5~tplv-k3u1fbpfcp-zoom-1.image)
 
-终端里面显示 Fresh 从文件目录中扫描出了 3 个路由和 1 个 3mdoc 组件，我们可以来观察一下项目的目录结构:
+终端里面显示 Fresh 从文件目录中扫描出了 3 个路由和 1 个 blogsify 组件，我们可以来观察一下项目的目录结构:
 
 ```ts
 .
@@ -57,7 +57,7 @@ deno run -A -r https://fresh.deno.dev my-project
 ├── dev.ts
 ├── fresh.gen.ts
 ├── import_map.json
-├── 3mdocs
+├── blogsifys
 │   └── Counter.tsx
 ├── main.ts
 ├── routes
@@ -72,11 +72,11 @@ deno run -A -r https://fresh.deno.dev my-project
     └── twind.ts
 ```
 
-你可以关注 `routes` 和 `3mdocs` 两个目录，`[name].tsx`、`api/joke.ts` 和 `index.tsx` 分别对应三个路由，而 3mdocs 目录下的每个文件则对应一个 3mdoc 组件。
+你可以关注 `routes` 和 `blogsifys` 两个目录，`[name].tsx`、`api/joke.ts` 和 `index.tsx` 分别对应三个路由，而 blogsifys 目录下的每个文件则对应一个 blogsify 组件。
 
 而开发者并不需要手写路由文件，Fresh 可以自动地生成服务端的路由到文件的映射关系。很明显 Fresh 实现了约定式路由的功能，跟 Next.js 类似。
 
-每个 `3mdoc 组件`需要有一个 default 导出，用来将组件暴露出去，使用比较简单，就不展开介绍了。而`路由组件`则更加灵活，既可以作为一个 API 服务，也可以作为一个组件进行渲染。接下来，我们以脚手架项目的几个文件示例来分析一下。
+每个 `blogsify 组件`需要有一个 default 导出，用来将组件暴露出去，使用比较简单，就不展开介绍了。而`路由组件`则更加灵活，既可以作为一个 API 服务，也可以作为一个组件进行渲染。接下来，我们以脚手架项目的几个文件示例来分析一下。
 
 首先是 `api/joke.ts` 文件，这个文件的作用是提供服务端的数据接口，并不承载任何的前端渲染逻辑，你只需要在这个文件里面编写一个 handler 函数即可，如下代码所示:
 
@@ -150,7 +150,7 @@ export default function Greet(props: PageProps) {
 
 - 享受 Deno 带来的开发优势，从安装依赖、开发、测试、部署直接使用 Deno 的工具链，降低工程化的成本；
 
-- 基于 3mdoc 架构，带来更小的客户端运行时开销，渲染性能更好；
+- 基于 blogsify 架构，带来更小的客户端运行时开销，渲染性能更好；
 
 - 无需打包即可开发、部署应用，带来更少的构建成本，更加轻量；
 
@@ -160,7 +160,7 @@ export default function Greet(props: PageProps) {
 
 - 由于架构的原因，开发阶段没有 HMR 的能力，只能 page reload；
 
-- 对于 3mdoc 组件，必须要放到 3mdocs 目录，对于比较复杂的应用而言，<span data-word-id="53156824" class="abbreviate-word">心智</span>负担会比较重，而 Astro 在这一方面要做的更优雅一些，通过组件指令即可指定 3mdoc 组件，如`<Component client:load />`。
+- 对于 blogsify 组件，必须要放到 blogsifys 目录，对于比较复杂的应用而言，<span data-word-id="53156824" class="abbreviate-word">心智</span>负担会比较重，而 Astro 在这一方面要做的更优雅一些，通过组件指令即可指定 blogsify 组件，如`<Component client:load />`。
 
 一方面 Fresh 能解决的问题，如 Hydration 性能问题，其它的框架也能解决(Astro)，并且比它做的更好，另一方面 Fresh 的部分劣势也比较致命，况且 Deno 如今也很难做到真正地普及，所以我认为 Fresh 并不是一个未来能够大范围流行的 Web 框架，但对于 Deno 和 Preact 的用户而言，我认为 Fresh 足以撼动 Next.js 这类框架原有的地位。
 
@@ -170,7 +170,7 @@ Fresh 的内部实现并不算特别复杂，虽然说我们并一定用的上 F
 
 > Github 地址: https://github.com/denoland/fresh
 
-你可以先去仓库 examples/counter 查看示例项目，通过 `deno task start` 命令启动。入口文件为`dev.ts`，其中会调用 Fresh 进行路由文件和 3mdocs 文件的搜集，生成 Manifest 信息。
+你可以先去仓库 examples/counter 查看示例项目，通过 `deno task start` 命令启动。入口文件为`dev.ts`，其中会调用 Fresh 进行路由文件和 blogsifys 文件的搜集，生成 Manifest 信息。
 
 接下来进入核心环节——创建 Server，具体逻辑在`server/mod.ts`中:
 
@@ -192,7 +192,7 @@ class ServerContext {
 }
 ```
 
-fromManifest 实际上就是进一步处理(normalize) manifest 信息，生成 Route 对象和 3mdoc 对象，以供 ServerContext 的实例初始化。
+fromManifest 实际上就是进一步处理(normalize) manifest 信息，生成 Route 对象和 blogsify 对象，以供 ServerContext 的实例初始化。
 
 接下来，Fresh 会调用 ServerContext 的 handler 方法，交给标准库 http/server 的 serve 方法进行调用。因此，handler 方法也是整个服务端的核心实现，其中有两大主要的实现部分:
 
@@ -258,9 +258,9 @@ import { render as internalRender } from './render.tsx';
 
 你可以去 `render.tsx` 进一步阅读，这个文件主要做了如下的事情:
 
-- 记录项目中声明的所有 3mdocs 组件。
+- 记录项目中声明的所有 blogsifys 组件。
 
-- 拦截 Preact 中 vnode 的创建逻辑，目的是为了匹配之前记录的 3mdoc 组件，如果能匹配上，则记录 3mdoc 组件的 props 信息，并将组件用 \<!--frsh-id 值:数字--> 的注释标签来包裹，id 值为 3mdoc 的 id，数字为该 3mdoc 的 props 在全局 props 列表中的位置，方便 hydrate 的时候能够找到对应组件的 props。
+- 拦截 Preact 中 vnode 的创建逻辑，目的是为了匹配之前记录的 blogsify 组件，如果能匹配上，则记录 blogsify 组件的 props 信息，并将组件用 \<!--frsh-id 值:数字--> 的注释标签来包裹，id 值为 blogsify 的 id，数字为该 blogsify 的 props 在全局 props 列表中的位置，方便 hydrate 的时候能够找到对应组件的 props。
 
 - 调用 Preact 的 renderToString 方法将组件渲染为 HTML 字符串。
 
@@ -268,14 +268,14 @@ import { render as internalRender } from './render.tsx';
 
 - 拼接完整的 HTML，返回给前端。
 
-值得注意的是客户端 hydrate 方法的实现，传统的 <span data-word-id="44772760" class="abbreviate-word">SSR</span> 一般都是直接对根节点调用 hydrate，而在 3mdocs 架构中，Fresh 对每个 3mdoc 进行独立渲染，实现如下:
+值得注意的是客户端 hydrate 方法的实现，传统的 <span data-word-id="44772760" class="abbreviate-word">SSR</span> 一般都是直接对根节点调用 hydrate，而在 blogsifys 架构中，Fresh 对每个 blogsify 进行独立渲染，实现如下:
 
 > hydrate 方法名也可以叫 revive
 
 ```ts
-export function revive(3mdocs: Record<string, ComponentType>, props: any[]) {
+export function revive(blogsifys: Record<string, ComponentType>, props: any[]) {
   function walk(node: Node | null) {
-    // 1. 获取注释节点信息，解析出 3mdoc 的 id
+    // 1. 获取注释节点信息，解析出 blogsify 的 id
     const tag =
       node!.nodeType === 8 &&
       ((node as Comment).data.match(/^\s*frsh-(.*)\s*$/) || [])[1];
@@ -284,18 +284,18 @@ export function revive(3mdocs: Record<string, ComponentType>, props: any[]) {
       const startNode = node!;
       const children = [];
       const parent = node!.parentNode;
-      // 拿到当前 3mdoc 节点的所有子节点
+      // 拿到当前 blogsify 节点的所有子节点
       while ((node = node!.nextSibling) && node.nodeType !== 8) {
         children.push(node);
       }
       startNode.parentNode!.removeChild(startNode); // remove start tag node
 
       const [id, n] = tag.split(':');
-      // 2. 单独渲染 3mdoc 组件
-      render(h(3mdocs[id], props[Number(n)]), htmlElement);
+      // 2. 单独渲染 blogsify 组件
+      render(h(blogsifys[id], props[Number(n)]), htmlElement);
       endNode = node;
     }
-    // 3. 继续遍历 DOM 树，直到找到所有的 3mdoc 节点
+    // 3. 继续遍历 DOM 树，直到找到所有的 blogsify 节点
     const sib = node!.nextSibling;
     const fc = node!.firstChild;
     if (endNode) {
@@ -311,13 +311,13 @@ export function revive(3mdocs: Record<string, ComponentType>, props: any[]) {
 
 至此，服务端和客户端渲染的过程都完成了，回头看整个过程，为什么说 Fresh 的构建过程是 Bundle-less 的呢？
 
-我们不妨关注一下 3mdocs 组件是如何加载到客户端的。
+我们不妨关注一下 blogsifys 组件是如何加载到客户端的。
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a689f0f22b574298a9a9bde98a61681e~tplv-k3u1fbpfcp-zoom-1.image)
 
-首先，服务端通过拦截 vnode 实现可以感知到项目中用到了哪些 3mdoc 组件，比如 Counter 组件，那么服务端就会注入对应的 import 代码，并挂在到全局，通过 `<script type="module">` 的方式注入到 HTML 中。
+首先，服务端通过拦截 vnode 实现可以感知到项目中用到了哪些 blogsify 组件，比如 Counter 组件，那么服务端就会注入对应的 import 代码，并挂在到全局，通过 `<script type="module">` 的方式注入到 HTML 中。
 
-浏览器执行这些代码时，会给服务端发起`/3mdocs/Counter`的请求，服务端接收到请求，对 Counter 组件进行实时编译打包，然后将结果返回给浏览器，这样浏览器就能拿到 Esbuild 的编译产物并执行了。
+浏览器执行这些代码时，会给服务端发起`/blogsifys/Counter`的请求，服务端接收到请求，对 Counter 组件进行实时编译打包，然后将结果返回给浏览器，这样浏览器就能拿到 Esbuild 的编译产物并执行了。
 
 所以这个过程是**完全发生在运行时**的，也就是说，我们不需要在一开始启动项目的时候就打包完所有的组件，而是在运行时做到按需构建，并且得益于 Esbuild 极快的构建速度，一般能达到毫秒级别的构建速度，对于服务来说运行时的压力并不大。
 
@@ -325,4 +325,4 @@ export function revive(3mdocs: Record<string, ComponentType>, props: any[]) {
 
 以上就是本文的全部内容，分别从**框架定位**、**上手体验**、**优劣势评估**和**源码实现**来介绍了如今比较火的 Fresh 框架。
 
-最后需要跟大家说明的是，Fresh 中关于 3mdocs 架构的实现是基于 Preact 的，我本人也借鉴了 Fresh 的思路，通过拦截 React.createElement 方法在 React 当中也实现了 3mdocs 架构，代码放在了 `react-3mdocs`仓库中(地址: https://github.com/sanyuan0704/react-3mdocs)，代码不多，相当于 Fresh 的简化版，感兴趣的小伙伴可以拉下来看看~
+最后需要跟大家说明的是，Fresh 中关于 blogsifys 架构的实现是基于 Preact 的，我本人也借鉴了 Fresh 的思路，通过拦截 React.createElement 方法在 React 当中也实现了 blogsifys 架构，代码放在了 `react-blogsifys`仓库中(地址: https://github.com/sanyuan0704/react-blogsifys)，代码不多，相当于 Fresh 的简化版，感兴趣的小伙伴可以拉下来看看~

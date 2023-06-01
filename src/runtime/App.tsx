@@ -1,8 +1,8 @@
-import { routes } from '3mdoc:routes'
+import { routes } from 'blogsify:routes'
 import { matchRoutes } from 'react-router-dom'
 import { PageData } from 'shared/types'
 import { Layout } from '../theme-default'
-import siteData from '3mdoc:site-data'
+import siteData from 'blogsify:site-data'
 
 export async function initPageData(routePath: string): Promise<PageData> {
   // 获取路由组件编译后的模块内容

@@ -2,25 +2,25 @@
  * Headings
  * -------------------------------------------------------------------------- */
 
- .3mdoc-doc h1,
- .3mdoc-doc h2,
- .3mdoc-doc h3,
- .3mdoc-doc h4,
- .3mdoc-doc h5,
- .3mdoc-doc h6 {
+ .blogsify-doc h1,
+ .blogsify-doc h2,
+ .blogsify-doc h3,
+ .blogsify-doc h4,
+ .blogsify-doc h5,
+ .blogsify-doc h6 {
    position: relative;
    font-weight: 600;
    outline: none;
  }
  
- .3mdoc-doc h1 {
+ .blogsify-doc h1 {
    letter-spacing: -0.02em;
    line-height: 40px;
    font-size: 28px;
    margin-bottom: 40px;
  }
  
- .3mdoc-doc h2 {
+ .blogsify-doc h2 {
    margin: 48px 0 16px;
    /* padding-top: 24px; */
    letter-spacing: -0.02em;
@@ -28,14 +28,14 @@
    font-size: 24px;
  }
  
- .3mdoc-doc h3 {
+ .blogsify-doc h3 {
    margin: 32px 0 0;
    letter-spacing: -0.01em;
    line-height: 28px;
    font-size: 20px;
  }
  
- .3mdoc-doc .header-anchor {
+ .blogsify-doc .header-anchor {
    float: left;
    margin-left: -0.87em;
    padding-right: 0.23em;
@@ -44,23 +44,23 @@
    transition: color 0.25s, opacity 0.25s;
  }
  
- .3mdoc-doc h1:hover .header-anchor,
- .3mdoc-doc h1 .header-anchor:focus,
- .3mdoc-doc h2:hover .header-anchor,
- .3mdoc-doc h2 .header-anchor:focus,
- .3mdoc-doc h3:hover .header-anchor,
- .3mdoc-doc h3 .header-anchor:focus,
- .3mdoc-doc h4:hover .header-anchor,
- .3mdoc-doc h4 .header-anchor:focus,
- .3mdoc-doc h5:hover .header-anchor,
- .3mdoc-doc h5 .header-anchor:focus,
- .3mdoc-doc h6:hover .header-anchor,
- .3mdoc-doc h6 .header-anchor:focus {
+ .blogsify-doc h1:hover .header-anchor,
+ .blogsify-doc h1 .header-anchor:focus,
+ .blogsify-doc h2:hover .header-anchor,
+ .blogsify-doc h2 .header-anchor:focus,
+ .blogsify-doc h3:hover .header-anchor,
+ .blogsify-doc h3 .header-anchor:focus,
+ .blogsify-doc h4:hover .header-anchor,
+ .blogsify-doc h4 .header-anchor:focus,
+ .blogsify-doc h5:hover .header-anchor,
+ .blogsify-doc h5 .header-anchor:focus,
+ .blogsify-doc h6:hover .header-anchor,
+ .blogsify-doc h6 .header-anchor:focus {
    opacity: 1;
  }
  
  @media (min-width: 768px) {
-   .3mdoc-doc h1 {
+   .blogsify-doc h1 {
      letter-spacing: -0.02em;
      line-height: 40px;
      font-size: 32px;
@@ -71,42 +71,42 @@
     * Paragraph and inline elements
     * -------------------------------------------------------------------------- */
  
- .3mdoc-doc p,
- .3mdoc-doc summary {
+ .blogsify-doc p,
+ .blogsify-doc summary {
    margin: 16px 0;
  }
  
- .3mdoc-doc p {
+ .blogsify-doc p {
    z-index: 2;
    line-height: 28px;
  }
  
- .3mdoc-doc blockquote {
+ .blogsify-doc blockquote {
    margin: 16px 0;
-   border-left: 2px solid var(--3mdoc-c-divider);
+   border-left: 2px solid var(--blogsify-c-divider);
    padding-left: 16px;
    transition: border-color 0.5s;
  }
  
- .3mdoc-doc blockquote > p {
+ .blogsify-doc blockquote > p {
    margin: 0;
    font-size: 16px;
-   color: var(--3mdoc-c-text-2);
+   color: var(--blogsify-c-text-2);
    transition: color 0.5s;
  }
  
- .3mdoc-doc a {
+ .blogsify-doc a {
    font-weight: 500;
-   color: var(--3mdoc-c-brand);
+   color: var(--blogsify-c-brand);
    text-decoration-style: dotted;
    transition: color 0.25s;
  }
  
- .3mdoc-doc a:hover {
-   color: var(--3mdoc-c-brand-dark);
+ .blogsify-doc a:hover {
+   color: var(--blogsify-c-brand-dark);
  }
  
- .3mdoc-doc strong {
+ .blogsify-doc strong {
    font-weight: 600;
  }
  
@@ -114,26 +114,26 @@
     * Lists
     * -------------------------------------------------------------------------- */
  
- .3mdoc-doc ul,
- .3mdoc-doc ol {
+ .blogsify-doc ul,
+ .blogsify-doc ol {
    padding-left: 1.25rem;
    margin: 16px 0;
  }
  
- .3mdoc-doc ul {
+ .blogsify-doc ul {
    list-style: disc;
  }
  
- .3mdoc-doc ol {
+ .blogsify-doc ol {
    list-style: decimal;
  }
  
- .3mdoc-doc li + li {
+ .blogsify-doc li + li {
    margin-top: 8px;
  }
  
- .3mdoc-doc li > ol,
- .3mdoc-doc li > ul {
+ .blogsify-doc li > ol,
+ .blogsify-doc li > ul {
    margin: 8px 0 0;
  }
  
@@ -141,87 +141,87 @@
     * Table
     * -------------------------------------------------------------------------- */
  
- .3mdoc-doc table {
+ .blogsify-doc table {
    display: block;
    border-collapse: collapse;
    margin: 20px 0;
    overflow-x: auto;
  }
  
- .3mdoc-doc tr {
-   border-top: 1px solid var(--3mdoc-c-divider);
+ .blogsify-doc tr {
+   border-top: 1px solid var(--blogsify-c-divider);
    transition: background-color 0.5s;
  }
  
- .3mdoc-doc tr:nth-child(2n) {
-   background-color: var(--3mdoc-c-bg-soft);
+ .blogsify-doc tr:nth-child(2n) {
+   background-color: var(--blogsify-c-bg-soft);
  }
  
- .3mdoc-doc th,
- .3mdoc-doc td {
-   border: 1px solid var(--3mdoc-c-divider);
+ .blogsify-doc th,
+ .blogsify-doc td {
+   border: 1px solid var(--blogsify-c-divider);
    padding: 12px 16px;
  }
  
- .3mdoc-doc th {
+ .blogsify-doc th {
    font-size: 16px;
    font-weight: 600;
-   background-color: var(--3mdoc-c-white-soft);
+   background-color: var(--blogsify-c-white-soft);
  }
  
- .dark .3mdoc-doc th {
-   background-color: var(--3mdoc-c-black);
+ .dark .blogsify-doc th {
+   background-color: var(--blogsify-c-black);
  }
  
  /**
     * Decorational elements
     * -------------------------------------------------------------------------- */
  
- .3mdoc-doc hr {
+ .blogsify-doc hr {
    margin: 16px 0;
    border: none;
-   border-top: 1px solid var(--3mdoc-c-divider-light);
+   border-top: 1px solid var(--blogsify-c-divider-light);
  }
  
  /**
     * Custom Block
     * -------------------------------------------------------------------------- */
  
- .3mdoc-doc .custom-block {
+ .blogsify-doc .custom-block {
    margin: 16px 0;
  }
  
- .3mdoc-doc .custom-block p {
+ .blogsify-doc .custom-block p {
    margin: 8px 0;
    line-height: 24px;
  }
  
- .3mdoc-doc .custom-block p:first-child {
+ .blogsify-doc .custom-block p:first-child {
    margin: 0;
  }
  
- .3mdoc-doc .custom-block a {
+ .blogsify-doc .custom-block a {
    color: inherit;
    font-weight: 600;
    text-decoration: underline;
    transition: opacity 0.25s;
  }
  
- .3mdoc-doc .custom-block a:hover {
+ .blogsify-doc .custom-block a:hover {
    opacity: 0.6;
  }
  
- .3mdoc-doc .custom-block code {
-   font-size: var(--3mdoc-custom-block-code-font-size);
+ .blogsify-doc .custom-block code {
+   font-size: var(--blogsify-custom-block-code-font-size);
    font-weight: 700;
    color: inherit;
  }
  
- .3mdoc-doc .custom-block div[class*='language-'] {
+ .blogsify-doc .custom-block div[class*='language-'] {
    margin: 8px 0;
  }
  
- .3mdoc-doc .custom-block div[class*='language-'] code {
+ .blogsify-doc .custom-block div[class*='language-'] code {
    font-weight: 400;
    background-color: transparent;
  }
@@ -231,65 +231,65 @@
     * -------------------------------------------------------------------------- */
  
  /* inline code */
- .3mdoc-doc :not(pre, h1, h2, h3, h4, h5, h6) > code {
-   font-size: var(--3mdoc-code-font-size);
+ .blogsify-doc :not(pre, h1, h2, h3, h4, h5, h6) > code {
+   font-size: var(--blogsify-code-font-size);
  }
  
- .3mdoc-doc :not(pre, div) > code {
+ .blogsify-doc :not(pre, div) > code {
    border-radius: 4px;
    padding: 3px 6px;
-   color: var(--3mdoc-c-text-code);
-   background-color: var(--3mdoc-c-bg-mute);
+   color: var(--blogsify-c-text-code);
+   background-color: var(--blogsify-c-bg-mute);
    transition: color 0.5s, background-color 0.5s;
  }
  
- .3mdoc-doc h1 > code,
- .3mdoc-doc h2 > code,
- .3mdoc-doc h3 > code {
+ .blogsify-doc h1 > code,
+ .blogsify-doc h2 > code,
+ .blogsify-doc h3 > code {
    font-size: 0.9em;
  }
  
- .3mdoc-doc a > code {
-   color: var(--3mdoc-c-brand);
+ .blogsify-doc a > code {
+   color: var(--blogsify-c-brand);
    transition: color 0.25s;
  }
  
- .3mdoc-doc a:hover > code {
-   color: var(--3mdoc-c-brand-dark);
+ .blogsify-doc a:hover > code {
+   color: var(--blogsify-c-brand-dark);
  }
  
- .3mdoc-doc div[class*='language-'] {
+ .blogsify-doc div[class*='language-'] {
    position: relative;
    margin: 16px -24px;
-   background-color: var(--3mdoc-code-block-bg);
+   background-color: var(--blogsify-code-block-bg);
    overflow-x: auto;
    transition: background-color 0.5s;
  }
  
  @media (min-width: 640px) {
-   .3mdoc-doc div[class*='language-'] {
+   .blogsify-doc div[class*='language-'] {
      border-radius: 8px;
      margin: 16px 0;
    }
  }
  
  @media (max-width: 639px) {
-   .3mdoc-doc li div[class*='language-'] {
+   .blogsify-doc li div[class*='language-'] {
      border-radius: 8px 0 0 8px;
    }
  }
  
- .3mdoc-doc div[class*='language-'] + div[class*='language-'],
- .3mdoc-doc div[class$='-api'] + div[class*='language-'],
- .3mdoc-doc
+ .blogsify-doc div[class*='language-'] + div[class*='language-'],
+ .blogsify-doc div[class$='-api'] + div[class*='language-'],
+ .blogsify-doc
    div[class*='language-']
    + div[class$='-api']
    > div[class*='language-'] {
    margin-top: -8px;
  }
  
- .3mdoc-doc [class*='language-'] pre,
- .3mdoc-doc [class*='language-'] code {
+ .blogsify-doc [class*='language-'] pre,
+ .blogsify-doc [class*='language-'] code {
    text-align: left;
    white-space: pre;
    word-spacing: normal;
@@ -304,7 +304,7 @@
    hyphens: none;
  }
  
- .3mdoc-doc [class*='language-'] pre {
+ .blogsify-doc [class*='language-'] pre {
    position: relative;
    z-index: 1;
    margin: 0;
@@ -313,19 +313,19 @@
    overflow-x: auto;
  }
  
- .3mdoc-doc [class*='language-'] code {
+ .blogsify-doc [class*='language-'] code {
    display: block;
    padding: 0 24px;
    width: fit-content;
    min-width: 100%;
-   line-height: var(--3mdoc-code-line-height);
-   font-size: var(--3mdoc-code-font-size);
-   color: var(--3mdoc-code-block-color);
+   line-height: var(--blogsify-code-line-height);
+   font-size: var(--blogsify-code-font-size);
+   color: var(--blogsify-code-block-color);
    transition: color 0.5s;
  }
  
- .3mdoc-doc [class*='language-'] code .highlighted {
-   background-color: var(--3mdoc-code-line-highlight-color);
+ .blogsify-doc [class*='language-'] code .highlighted {
+   background-color: var(--blogsify-code-line-highlight-color);
    transition: background-color 0.5s;
    margin: 0 -24px;
    padding: 0 24px;
@@ -333,7 +333,7 @@
    display: inline-block;
  }
  
- .3mdoc-doc [class*='language-'] > button.copy {
+ .blogsify-doc [class*='language-'] > button.copy {
    position: absolute;
    top: 8px;
    right: 8px;
@@ -344,34 +344,34 @@
    border-radius: 4px;
    width: 40px;
    height: 40px;
-   background-color: var(--3mdoc-code-block-bg);
+   background-color: var(--blogsify-code-block-bg);
    opacity: 0;
    cursor: pointer;
-   background-image: var(--3mdoc-icon-copy);
+   background-image: var(--blogsify-icon-copy);
    background-position: 50%;
    background-size: 20px;
    background-repeat: no-repeat;
    transition: opacity 0.4s;
  }
  
- .3mdoc-doc [class*='language-']:hover > button.copy,
- .3mdoc-doc [class*='language-'] > button.copy:focus {
+ .blogsify-doc [class*='language-']:hover > button.copy,
+ .blogsify-doc [class*='language-'] > button.copy:focus {
    opacity: 1;
  }
  
- .3mdoc-doc [class*='language-'] > button.copy:hover {
-   background-color: var(--3mdoc-code-copy-code-hover-bg);
+ .blogsify-doc [class*='language-'] > button.copy:hover {
+   background-color: var(--blogsify-code-copy-code-hover-bg);
  }
  
- .3mdoc-doc [class*='language-'] > button.copy.copied,
- .3mdoc-doc [class*='language-'] > button.copy:hover.copied {
+ .blogsify-doc [class*='language-'] > button.copy.copied,
+ .blogsify-doc [class*='language-'] > button.copy:hover.copied {
    border-radius: 0 4px 4px 0;
-   background-color: var(--3mdoc-code-copy-code-hover-bg);
-   background-image: var(--3mdoc-icon-copied);
+   background-color: var(--blogsify-code-copy-code-hover-bg);
+   background-image: var(--blogsify-icon-copied);
  }
  
- .3mdoc-doc [class*='language-'] > button.copy.copied::before,
- .3mdoc-doc [class*='language-'] > button.copy:hover.copied::before {
+ .blogsify-doc [class*='language-'] > button.copy.copied::before,
+ .blogsify-doc [class*='language-'] > button.copy:hover.copied::before {
    position: relative;
    left: -65px;
    display: block;
@@ -382,24 +382,24 @@
    text-align: center;
    font-size: 12px;
    font-weight: 500;
-   color: var(--3mdoc-code-copy-code-active-text);
-   background-color: var(--3mdoc-code-copy-code-hover-bg);
+   color: var(--blogsify-code-copy-code-active-text);
+   background-color: var(--blogsify-code-copy-code-hover-bg);
    white-space: nowrap;
    content: 'Copied';
  }
  
- .3mdoc-doc [class*='language-'] > span.lang {
+ .blogsify-doc [class*='language-'] > span.lang {
    position: absolute;
    top: 6px;
    right: 12px;
    z-index: 2;
    font-size: 12px;
    font-weight: 500;
-   color: var(--3mdoc-c-text-dark-3);
+   color: var(--blogsify-c-text-dark-3);
    transition: color 0.4s, opacity 0.4s;
  }
  
- .3mdoc-doc [class*='language-']:hover > button.copy + span.lang,
- .3mdoc-doc [class*='language-'] > button.copy:focus + span.lang {
+ .blogsify-doc [class*='language-']:hover > button.copy + span.lang,
+ .blogsify-doc [class*='language-'] > button.copy:focus + span.lang {
    opacity: 0;
  }

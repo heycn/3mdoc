@@ -26,38 +26,38 @@
 }
 
 .button.brand {
-  border-color: var(--3mdoc-button-brand-border);
-  color: var(--3mdoc-button-brand-text);
-  background-color: var(--3mdoc-button-brand-bg);
+  border-color: var(--blogsify-button-brand-border);
+  color: var(--blogsify-button-brand-text);
+  background-color: var(--blogsify-button-brand-bg);
 }
 
 .button.brand:hover {
   opacity: 1;
-  border-color: var(--3mdoc-button-brand-hover-border);
-  color: var(--3mdoc-button-brand-hover-text);
-  background-color: var(--3mdoc-button-brand-hover-bg);
+  border-color: var(--blogsify-button-brand-hover-border);
+  color: var(--blogsify-button-brand-hover-text);
+  background-color: var(--blogsify-button-brand-hover-bg);
 }
 
 .button.brand:active {
-  border-color: var(--3mdoc-button-brand-active-border);
-  color: var(--3mdoc-button-brand-active-text);
-  background-color: var(--3mdoc-button-brand-active-bg);
+  border-color: var(--blogsify-button-brand-active-border);
+  color: var(--blogsify-button-brand-active-text);
+  background-color: var(--blogsify-button-brand-active-bg);
 }
 
 .button.alt {
-  border-color: var(--3mdoc-button-alt-border);
-  color: var(--3mdoc-button-alt-text);
-  background-color: var(--3mdoc-button-alt-bg);
+  border-color: var(--blogsify-button-alt-border);
+  color: var(--blogsify-button-alt-text);
+  background-color: var(--blogsify-button-alt-bg);
 }
 
 .button.alt:hover {
-  border-color: var(--3mdoc-button-alt-hover-border);
-  color: var(--3mdoc-button-alt-hover-text);
-  background-color: var(--3mdoc-button-alt-hover-bg);
+  border-color: var(--blogsify-button-alt-hover-border);
+  color: var(--blogsify-button-alt-hover-text);
+  background-color: var(--blogsify-button-alt-hover-bg);
 }
 
 .button.alt:active {
-  border-color: var(--3mdoc-button-alt-active-border);
-  color: var(--3mdoc-button-alt-active-text);
-  background-color: var(--3mdoc-button-alt-active-bg);
+  border-color: var(--blogsify-button-alt-active-border);
+  color: var(--blogsify-button-alt-active-text);
+  background-color: var(--blogsify-button-alt-active-bg);
 }

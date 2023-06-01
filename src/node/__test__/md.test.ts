@@ -27,9 +27,9 @@ describe('Markdown compile cases', async () => {
   })
 
   test('Compile code', async () => {
-    const mdContent = 'I am using `3mdoc.js`'
+    const mdContent = 'I am using `blogsify.js`'
     const result = processor.processSync(mdContent)
-    expect(result.value).toMatchInlineSnapshot('"<p>I am using <code>3mdoc.js</code></p>"')
+    expect(result.value).toMatchInlineSnapshot('"<p>I am using <code>blogsify.js</code></p>"')
   })
 
   test('Compile code block', async () => {

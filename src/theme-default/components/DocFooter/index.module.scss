@@ -5,7 +5,7 @@
 
 .pager-link {
   display: block;
-  border: 1px solid var(--3mdoc-c-divider-light);
+  border: 1px solid var(--blogsify-c-divider-light);
   border-radius: 8px;
   padding: 8px 16px 8px;
   width: 100%;
@@ -14,11 +14,11 @@
 }
 
 .pager-link:hover {
-  border-color: var(--3mdoc-c-brand);
+  border-color: var(--blogsify-c-brand);
 }
 
 .pager-link:hover .title {
-  color: var(--3mdoc-c-brand-dark);
+  color: var(--blogsify-c-brand-dark);
 }
 
 .pager-link.next {
@@ -31,7 +31,7 @@
   line-height: 20px;
   font-size: 12px;
   font-weight: 500;
-  color: var(--3mdoc-c-text-2);
+  color: var(--blogsify-c-text-2);
 }
 
 .title {
@@ -39,6 +39,6 @@
   line-height: 20px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--3mdoc-c-brand);
+  color: var(--blogsify-c-brand);
   transition: color 0.25s;
 }

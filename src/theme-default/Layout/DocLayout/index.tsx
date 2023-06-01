@@ -21,7 +21,7 @@ export function DocLayout() {
       <Sidebar sidebarData={matchedSidebar} pathname={pathname} />
       <div className={styles.content}>
         <div>
-          <div className="3mdoc-doc">
+          <div className="blogsify-doc">
             <Content />
           </div>
           <DocFooter />
