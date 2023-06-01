@@ -1,7 +1,8 @@
+import { useEffect, useRef } from 'react'
 import { Header, PropsWithblogsify } from 'shared/types'
-import { useRef, useEffect } from 'react'
-import { bindingAsideScroll, scrollToTarget } from '../../logic/asideScroll'
-import { useHeaders } from '../../logic/useHeaders'
+// import { useHeaders } from '../../logic/useHeaders'
+import { bindingAsideScroll, scrollToTarget } from '../..//logic/asideScroll'
+
 
 interface AsideProps {
   headers: Header[];
@@ -13,6 +14,13 @@ export function Aside(props: AsideProps & PropsWithblogsify) {
   const hasOutline = headers.length > 0
   // 当前标题会进行高亮处理，我们会在这个标题前面加一个 marker 元素
   const markerRef = useRef<HTMLDivElement>(null)
+  // 组件内逻辑
+  useEffect(() => {
+    const unbinding = bindingAsideScroll()
+    return () => {
+      unbinding()
+    }
+  }, [])
 
   const renderHeader = (header: Header) => {
     return (
@@ -23,6 +31,11 @@ export function Aside(props: AsideProps & PropsWithblogsify) {
           transition="color duration-300"
           style={{
             paddingLeft: (header.depth - 2) * 12
+          }}
+          onClick={(e) => {
+            e.preventDefault()
+            const target = document.getElementById(header.id)
+            target && scrollToTarget(target, false)
           }}
         >
           {header.text}
