@@ -4,7 +4,7 @@ import { build } from './build'
 import { preview } from './preview'
 import { resolveConfig } from './config'
 
-const cli = cac('3mdoc').version('0.0.1').help()
+const cli = cac('blogs').version('0.0.1').help()
 
 cli
   .command('dev [root]', 'start dev server')
@@ -50,4 +50,4 @@ cli.parse()
 // 调试 CLI:
 // 1. 在 package.json 中声明 bin 字段
 // 2. 通过 npm link 将命令 link 到全局
-// 3. 执行 blogsify dev 命令
+// 3. 执行 blogs dev 命令

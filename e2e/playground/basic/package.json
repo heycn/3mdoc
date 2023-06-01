@@ -7,14 +7,14 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "3mdoc dev docs",
-    "build": "3mdoc build docs",
-    "preview": "3mdoc start docs"
+    "dev": "blogs dev docs",
+    "build": "blogs build docs",
+    "preview": "blogs start docs"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "3mdocjs": "../../.."
+    "blogsjs": "../../.."
   }
 }

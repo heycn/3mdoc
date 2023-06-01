@@ -1,5 +1,5 @@
 {
-  "name": "3mdoc",
+  "name": "blogsify",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "prepare:e2e": "tsx scripts/prepare-e2e.ts"
   },
   "bin": {
-    "3mdoc": "bin/3mdoc.js"
+    "blogs": "bin/blogs.js"
   },
   "keywords": [],
   "author": "",
