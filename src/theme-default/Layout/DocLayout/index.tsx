@@ -28,7 +28,7 @@ export function DocLayout() {
           <DocFooter />
         </div>
         <div className={styles.asideContainer}>
-          <Aside headers={toc} __blogsify />
+          <Aside headers={toc} />
         </div>
       </div>
     </div>
