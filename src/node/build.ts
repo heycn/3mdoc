@@ -55,13 +55,7 @@ async function buildIslands(
   root: string,
   islandPathToMap: Record<string, string>
 ) {
-  // { Aside: 'xxx' }
-  // 内容
-  // import { Aside } from 'xxx'
-  // window.ISLANDS = { Aside }
-  // window.ISLAND_PROPS = JSON.parse(
-  // document.getElementById('island-props').textContent
-  // );
+  // 根据 islandPathToMap 拼接模块代码内容
   const islandsInjectCode = `
     ${Object.entries(islandPathToMap)
       .map(
@@ -78,12 +72,14 @@ window.ISLAND_PROPS = JSON.parse(
   return viteBuild({
     mode: 'production',
     build: {
+      // 输出目录
       outDir: path.join(root, '.temp'),
       rollupOptions: {
         input: injectId
       }
     },
     plugins: [
+      // 重点插件，用来加载我们拼接的 Islands 注册模块的代码
       {
         name: 'island:inject',
         enforce: 'post',
@@ -102,6 +98,7 @@ window.ISLAND_PROPS = JSON.parse(
             return islandsInjectCode
           }
         },
+        // 对于 Islands Bundle，我们只需要 JS 即可，其它资源文件可以删除
         generateBundle(_, bundle) {
           for (const name in bundle) {
             if (bundle[name].type === 'asset') {
@@ -151,6 +148,7 @@ export async function renderPages(
     })
   )
 }
+
 
 export async function build(root: string = process.cwd(), config: SiteConfig) {
   // 1. bundle - client 端 + server 端
