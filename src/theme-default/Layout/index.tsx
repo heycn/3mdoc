@@ -28,7 +28,7 @@ export function Layout() {
       <Nav />
       <section
         style={{
-          paddingTop: 'var(--island-nav-height)'
+          paddingTop: 'var(--blogsify-nav-height)'
         }}
       >
         {getContent()}
