@@ -8,7 +8,18 @@ const options: VitePluginConfig = {
       /^divider-(\w+)$/,
       ([, w]) => ({
         [`border-${w}`]: '1px solid var(--3mdoc-c-divider-light)'
-      })
+      }),
+    ],
+    [
+      'menu-item-before',
+      {
+        'margin-right': '12px',
+        'margin-left': '12px',
+        width: '1px',
+        height: '24px',
+        'background-color': 'var(--3mdoc-c-divider-light)',
+        content: '" "',
+      },
     ]
   ]
 }
