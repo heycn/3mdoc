@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "preview": "cd build && serve .",
+    "preview": "cd docs/build && serve .",
     "test:unit": "vitest run",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ./",
     "test:e2e": "playwright test",
