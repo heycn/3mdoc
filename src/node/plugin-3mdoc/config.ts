@@ -1,7 +1,9 @@
+import fs from 'fs-extra'
 import { Plugin } from 'vite'
 import { SiteConfig } from 'shared/types/index'
-import { join, relative } from 'path'
+import path, { join, relative } from 'path'
 import { PACKAGE_ROOT } from '../../node/constants'
+import sirv from 'sirv'
 
 const SITE_DATA_ID = '3mdoc:site-data'
 
@@ -43,6 +45,12 @@ export function pluginConfig(
         console.log(`[3mdoc]\n${relative(config.root, ctx.file)} changed, restarting server...`)
         await restartServer()
       }
+    },
+    configureServer(server) {
+      const publicDir = path.join(config.root, 'public')
+      // if (fs.pathExistsSync(publicDir)) {
+      server.middlewares.use(sirv(publicDir))
+      // }
     }
   }
 }

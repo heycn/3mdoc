@@ -35,8 +35,8 @@ export function HomeHero(props: { hero: Hero }) {
           </div>
         </div>
         {hero.image && (
-          <div w="max-96" h="max-96" flex="center" m="auto">
-            <img src={hero.image.src} alt={hero.image.alt} />
+          <div w="142px" h="142px" flex="center" m="auto">
+            <img src={hero.image.src} alt={hero.image.alt} w="full" />
           </div>
         )}
       </div>
