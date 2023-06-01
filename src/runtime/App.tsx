@@ -10,21 +10,23 @@ export async function initPageData(routePath: string): Promise<PageData> {
 
   if (matched) {
     // Preload route component
-    // TODO: 待补充 preload 方法
+    // 待补充信息: preload 方法
     const moduleInfo = await matched[0].route.preload()
     return {
       pageType: moduleInfo.frontmatter?.pageType ?? 'doc',
       siteData,
       frontmatter: moduleInfo.frontmatter,
       pagePath: routePath,
-      toc: moduleInfo.toc
+      toc: moduleInfo.toc,
+      title: moduleInfo.title
     }
   }
   return {
     pageType: '404',
     siteData,
     pagePath: routePath,
-    frontmatter: {}
+    frontmatter: {},
+    title: '404'
   }
 }
 

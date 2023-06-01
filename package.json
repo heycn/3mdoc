@@ -16,7 +16,7 @@
   "bin": {
     "3mdoc": "bin/3mdoc.js"
   },
-  "keywords": [ ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -76,6 +76,7 @@
     "ora": "6.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-helmet-async": "1.3.0",
     "react-router-dom": "6.4.3",
     "rehype-autolink-headings": "6.1.1",
     "rehype-slug": "5.1.0",
