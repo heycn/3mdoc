@@ -145,7 +145,12 @@ export async function renderPages(
     (chunk) => chunk.type === 'chunk' && chunk.isEntry
   )
   return Promise.all(
-    routes.map(async (route) => {
+    [
+      ...routes,
+      {
+        path: '/404'
+      }
+    ].map(async (route) => {
       const routePath = route.path
       const helmetContext = {
         context: {}
@@ -176,8 +181,8 @@ export async function renderPages(
     ${helmet?.style?.toString() || ''}
     <meta name="description" content="xxx">
     ${styleAssets
-      .map((item) => `<link rel="stylesheet" href="/${item.fileName}">`)
-      .join('\n')}
+          .map((item) => `<link rel="stylesheet" href="/${item.fileName}">`)
+          .join('\n')}
     <script type="importmap">
       {
         "imports": {
